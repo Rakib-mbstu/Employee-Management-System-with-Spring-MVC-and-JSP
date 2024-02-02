@@ -37,9 +37,11 @@ public class ControllerApp {
         return "/WEB-INF/view/Edit_Emp.jsp";
     }
     @RequestMapping(value = "/updateEmp",method = RequestMethod.POST)
-    public String updateEmp(@ModelAttribute EmployeeDetails employeeDetails,)
+    public String updateEmp(@ModelAttribute EmployeeDetails employeeDetails,HttpSession session)
     {
-        return
+        empDao.update(employeeDetails);
+        session.setAttribute("msg","Success");
+        return "redirect:/home";
     }
     @RequestMapping(value = "/registerEmployee",method = RequestMethod.POST)
     public String register(@ModelAttribute EmployeeDetails employeeDetails, HttpSession session)
@@ -48,6 +50,13 @@ public class ControllerApp {
         empDao.save(employeeDetails);
         session.setAttribute("msg","Registration Successful");
         return "redirect:/Add_Emp";
+    }
+    @RequestMapping("/deleteEmployee/{id}")
+    public String delete(@PathVariable("id") int id,HttpSession session)
+    {
+        empDao.delete(id);
+        session.setAttribute("msg", "deleted");
+        return "redirect:/home";
     }
 
 }

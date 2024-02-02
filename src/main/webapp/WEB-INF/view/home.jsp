@@ -39,6 +39,11 @@
             <div class="card">
                  <div class="card-header text-center ">
                      <h4> All Employee Details </h4>
+                     <c:if test="${not empty msg}">
+                         <h5 class="text-success">${msg}</h5>
+                         <c:remove var="msg"/>
+                     </c:if>
+                 </div >
                      <div class="card-body">
                          <table class="table">
                              <thead>
@@ -62,7 +67,7 @@
                                  <td>${emp.salary}</td>
                                  <td>
                                      <a href="Edit_Emp/${emp.id}" class="btn btn-sm btn-primary">Edit</a>
-                                     <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                     <a href="deleteEmployee/${emp.id}" class="btn btn-sm btn-danger">Delete</a>
                                  </td>
                              </tr>
                              </c:forEach>

@@ -46,9 +46,10 @@
                     </c:if>
                 </div>
                 <div class="card-body">
-                    <form action="updateEmployee" method="post">
+                    <form action="${pageContext.request.contextPath}/updateEmp" method="post">
                         <div class="mb-3">
                             <label> Enter Full Name</label>
+                            <input type="hidden" name="id" class="form-control" value="${emp.id}">
                             <input type="text" name="fullName" class="form-control" value="${emp.fullName}">
                         </div>
                         <div class="mb-3">
