@@ -17,7 +17,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Emp Management System</a>
+        <a class="navbar-brand" href="front_view">Emp Management System</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -54,6 +54,7 @@
                                  <th scope="col">Mail</th>
                                  <th scope="col">Designation</th>
                                  <th scope="col">Salary</th>
+                                 <th scope="col">Department</th>
                              </tr>
                              </thead>
                              <tbody>
@@ -65,6 +66,7 @@
                                  <td>${emp.mail}</td>
                                  <td>${emp.designation}</td>
                                  <td>${emp.salary}</td>
+                                 <td>${emp.department}</td>
                                  <td>
                                      <a href="Edit_Emp/${emp.id}" class="btn btn-sm btn-primary">Edit</a>
                                      <a href="deleteEmployee/${emp.id}" class="btn btn-sm btn-danger">Delete</a>
@@ -78,6 +80,5 @@
             </div>
         </div>
     </div>
-</div>
 </body>
 </html>

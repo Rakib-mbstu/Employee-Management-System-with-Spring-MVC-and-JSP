@@ -23,6 +23,15 @@ public class EmployeeDetails {
     private String mail;
     private double salary;
     private String designation;
+    private String department;
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
 
     public String getFullName() {
         return fullName;

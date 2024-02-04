@@ -55,4 +55,15 @@ public class EmpDaoImp implements EmpDao{
         entityManager.getTransaction().commit();
 
     }
+
+    @Override
+    public List<EmployeeDetails> getAllEmpByDept(String dept) {
+        init();
+        List<EmployeeDetails> detailsList = entityManager.
+                createQuery("from EmployeeDetails where department = ?1")
+                .setParameter(1, dept)
+                .getResultList();
+        entityManager.getTransaction().commit();
+        return detailsList;
+    }
 }

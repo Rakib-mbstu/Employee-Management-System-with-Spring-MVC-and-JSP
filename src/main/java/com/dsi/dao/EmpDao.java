@@ -10,4 +10,6 @@ public interface EmpDao{
     public List<EmployeeDetails> getAllEmp();
     public void update(EmployeeDetails details);
     public void delete(int id);
+
+    List<EmployeeDetails> getAllEmpByDept(String department);
 }

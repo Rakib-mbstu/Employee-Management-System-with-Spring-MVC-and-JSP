@@ -18,7 +18,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Emp Management System</a>
+        <a class="navbar-brand" href="front_view">Emp Management System</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -46,26 +46,34 @@
                     </c:if>
                 </div>
                <div class="card-body">
-                   <form action="registerEmployee" method="post">
+                   <form action="registerEmployee" method="post" >
+                       <div class="mb-3">
+                           <label> Choose Department</label>
+                           <select class="form-select" id="inputGroupSelect02" name="department">
+                           <option value="SE">Software Engineer</option>
+                           <option value="HR">Human Resource</option>
+                           <option value="SS">Support Stuff</option>
+                       </select>
+                       </div>
                        <div class="mb-3">
                            <label> Enter Full Name</label>
-                           <input type="text" name="fullName" class="form-control">
+                           <input type="text" name="fullName" class="form-control" required>
                        </div>
                        <div class="mb-3">
                            <label> Enter Address</label>
-                           <input type="text" name="address" class="form-control">
+                           <input type="text" name="address" class="form-control" required>
                        </div>
                        <div class="mb-3">
                            <label> Enter Mail</label>
-                           <input type="email" name="mail" class="form-control">
+                           <input type="email" name="mail" class="form-control" required>
                        </div>
                        <div class="mb-3">
                            <label> Enter Designation</label>
-                           <input type="text" name="designation" class="form-control">
+                           <input type="text" name="designation" class="form-control" required>
                        </div>
                        <div class="mb-3">
                            <label> Enter Salary</label>
-                           <input type="number" name="salary" class="form-control">
+                           <input type="number" name="salary" class="form-control" required>
                        </div>
                        <button class="btn btn-primary">Submit</button>
                    </form>

@@ -7,16 +7,18 @@ import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @Controller
 public class ControllerApp {
-    private EmpDao empDao = new EmpDaoImp();
+    private final EmpDao empDao;
+
+    public ControllerApp(EmpDao empDao) {
+        this.empDao = empDao;
+    }
+
     @RequestMapping("/home")
     public String home(Model model)
     {
@@ -28,6 +30,18 @@ public class ControllerApp {
     public String add_Emp()
     {
         return "/WEB-INF/view/Add_Emp.jsp";
+    }
+    @RequestMapping("/front_view")
+    public String front_page()
+    {
+        return "index.jsp";
+    }
+    @RequestMapping(value = "/searchByDept",method = RequestMethod.POST)
+    public String byDept(@RequestParam("department") String department, Model model)
+    {
+        List<EmployeeDetails> detailsList = empDao.getAllEmpByDept(department);
+        model.addAttribute("detailsList",detailsList);
+        return "/WEB-INF/view/home.jsp";
     }
     @RequestMapping("/Edit_Emp/{id}")
     public String edit_emp(@PathVariable("id") int id,Model model)
