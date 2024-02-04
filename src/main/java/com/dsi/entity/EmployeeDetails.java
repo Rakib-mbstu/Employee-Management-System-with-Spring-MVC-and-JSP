@@ -1,12 +1,18 @@
 package com.dsi.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class EmployeeDetails {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO )
+    private int id;
+    private String fullName;
+    private String address;
+    private String mail;
+    @OneToOne
+    private DesignationDetails designationDetails;
+
     public int getId() {
         return id;
     }
@@ -15,23 +21,6 @@ public class EmployeeDetails {
         this.id = id;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO )
-    private int id;
-    private String fullName;
-    private String address;
-    private String mail;
-    private double salary;
-    private String designation;
-    private String department;
-
-    public String getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
-    }
 
     public String getFullName() {
         return fullName;
@@ -57,30 +46,22 @@ public class EmployeeDetails {
         this.mail = mail;
     }
 
-    public double getSalary() {
-        return salary;
+
+    public DesignationDetails getDesignationDetails() {
+        return designationDetails;
     }
 
-    public void setSalary(double salary) {
-        this.salary = salary;
-    }
-
-    public String getDesignation() {
-        return designation;
-    }
-
-    public void setDesignation(String designation) {
-        this.designation = designation;
+    public void setDesignationDetails(DesignationDetails designationDetails) {
+        this.designationDetails = designationDetails;
     }
 
     @Override
     public String toString() {
         return "EmployeeDetails{" +
+                designationDetails.getDesignationName()+
                 ", fullName='" + fullName + '\'' +
                 ", address='" + address + '\'' +
-                ", mail='" + mail + '\'' +
-                ", salary=" + salary +
-                ", designation='" + designation + '\'' +
+                ", mail='" + mail + '\''  +
                 '}';
     }
 }

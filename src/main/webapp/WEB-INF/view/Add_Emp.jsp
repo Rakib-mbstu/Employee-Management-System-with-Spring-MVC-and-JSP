@@ -47,13 +47,13 @@
                 </div>
                <div class="card-body">
                    <form action="registerEmployee" method="post" >
-                       <div class="mb-3">
+                        <div class="mb-3">
                            <label> Choose Department</label>
-                           <select class="form-select" id="inputGroupSelect02" name="department">
-                           <option value="SE">Software Engineer</option>
-                           <option value="HR">Human Resource</option>
-                           <option value="SS">Support Stuff</option>
-                       </select>
+                            <select name="desi" class="form-control" >
+                                <c:forEach items="${desiDetails}" var="details">
+                                    <option value="${details.designationName}">${details.designationName}</option>
+                                </c:forEach>
+                            </select>
                        </div>
                        <div class="mb-3">
                            <label> Enter Full Name</label>
@@ -66,14 +66,6 @@
                        <div class="mb-3">
                            <label> Enter Mail</label>
                            <input type="email" name="mail" class="form-control" required>
-                       </div>
-                       <div class="mb-3">
-                           <label> Enter Designation</label>
-                           <input type="text" name="designation" class="form-control" required>
-                       </div>
-                       <div class="mb-3">
-                           <label> Enter Salary</label>
-                           <input type="number" name="salary" class="form-control" required>
                        </div>
                        <button class="btn btn-primary">Submit</button>
                    </form>

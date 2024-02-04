@@ -10,24 +10,22 @@ import java.util.List;
 @Repository
 public class EmpDaoImp implements EmpDao{
 
-    EntityManager entityManager;
+     EntityManager entityManager;
 
     public void init()
     {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpa");
-        this.entityManager = factory.createEntityManager();
+        entityManager = factory.createEntityManager();
         entityManager.getTransaction().begin();
     }
     @Override
     public void save(EmployeeDetails details) {
-        init();
         entityManager.persist(details);
         entityManager.getTransaction().commit();
     }
 
     @Override
     public EmployeeDetails getDetailsById(int id) {
-        init();
         EmployeeDetails employeeDetails = entityManager.find(EmployeeDetails.class,id);
         entityManager.getTransaction().commit();
         return employeeDetails;
@@ -35,7 +33,6 @@ public class EmpDaoImp implements EmpDao{
 
     @Override
     public List<EmployeeDetails> getAllEmp() {
-        init();
         List<EmployeeDetails> detailsList = entityManager.createQuery("from EmployeeDetails").getResultList();
         entityManager.getTransaction().commit();
         return detailsList;
@@ -43,14 +40,12 @@ public class EmpDaoImp implements EmpDao{
 
     @Override
     public void update(EmployeeDetails details) {
-        init();
         entityManager.merge(details);
         entityManager.getTransaction().commit();
     }
 
     @Override
     public void delete(int id) {
-        init();
         entityManager.remove(entityManager.find(EmployeeDetails.class,id));
         entityManager.getTransaction().commit();
 
@@ -58,7 +53,6 @@ public class EmpDaoImp implements EmpDao{
 
     @Override
     public List<EmployeeDetails> getAllEmpByDept(String dept) {
-        init();
         List<EmployeeDetails> detailsList = entityManager.
                 createQuery("from EmployeeDetails where department = ?1")
                 .setParameter(1, dept)
