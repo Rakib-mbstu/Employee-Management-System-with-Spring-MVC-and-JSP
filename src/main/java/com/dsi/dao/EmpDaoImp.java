@@ -5,29 +5,25 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 @Repository
 public class EmpDaoImp implements EmpDao{
 
-    EntityManager entityManager;
-
-    public void init()
-    {
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpa");
-        this.entityManager = factory.createEntityManager();
-        entityManager.getTransaction().begin();
-    }
+    EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpa");
     @Override
     public void save(EmployeeDetails details) {
-        init();
+        EntityManager entityManager = factory.createEntityManager();
+        entityManager.getTransaction().begin();
         entityManager.persist(details);
         entityManager.getTransaction().commit();
     }
 
     @Override
     public EmployeeDetails getDetailsById(int id) {
-        init();
+        EntityManager entityManager = factory.createEntityManager();
+        entityManager.getTransaction().begin();
         EmployeeDetails employeeDetails = entityManager.find(EmployeeDetails.class,id);
         entityManager.getTransaction().commit();
         return employeeDetails;
@@ -35,7 +31,8 @@ public class EmpDaoImp implements EmpDao{
 
     @Override
     public List<EmployeeDetails> getAllEmp() {
-        init();
+        EntityManager entityManager = factory.createEntityManager();
+        entityManager.getTransaction().begin();
         List<EmployeeDetails> detailsList = entityManager.createQuery("from EmployeeDetails").getResultList();
         entityManager.getTransaction().commit();
         return detailsList;
@@ -43,22 +40,24 @@ public class EmpDaoImp implements EmpDao{
 
     @Override
     public void update(EmployeeDetails details) {
-        init();
+        EntityManager entityManager = factory.createEntityManager();
+        entityManager.getTransaction().begin();
         entityManager.merge(details);
         entityManager.getTransaction().commit();
     }
 
     @Override
     public void delete(int id) {
-        init();
+        EntityManager entityManager = factory.createEntityManager();
+        entityManager.getTransaction().begin();
         entityManager.remove(entityManager.find(EmployeeDetails.class,id));
         entityManager.getTransaction().commit();
-
     }
 
     @Override
     public List<EmployeeDetails> getAllEmpByDept(String dept) {
-        init();
+        EntityManager entityManager = factory.createEntityManager();
+        entityManager.getTransaction().begin();
         List<EmployeeDetails> detailsList = entityManager.
                 createQuery("from EmployeeDetails where department = ?1")
                 .setParameter(1, dept)

@@ -25,10 +25,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="home">Home</a>
+                    <a class="nav-link active" aria-current="page" href="${pageContext.request.contextPath}/home">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="Add_Emp">Add Employee</a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/add_Emp">Add Employee</a>
                 </li>
             </ul>
         </div>
@@ -49,10 +49,10 @@
                     <form action="${pageContext.request.contextPath}/updateEmp" method="post">
                         <div class="mb-3">
                             <label> Choose Department</label>
-                            <select class="form-select"  name="department">
-                                <option value="SE">Software Engineer</option>
-                                <option value="HR">Human Resource</option>
-                                <option value="SS">Support Stuff</option>
+                            <select name="d_Id" class="form-control" >
+                                <c:forEach items="${designationLists}" var="details">
+                                    <option value="${details.d_Id}"> ${details.designationName}</option>
+                                </c:forEach>
                             </select>
                         </div>
                         <div class="mb-3">
@@ -67,14 +67,6 @@
                         <div class="mb-3">
                             <label> Enter Mail</label>
                             <input type="email" name="mail" class="form-control" value="${emp.mail}">
-                        </div>
-                        <div class="mb-3">
-                            <label> Enter Designation</label>
-                            <input type="text" name="designation" class="form-control" value="${emp.designation}">
-                        </div>
-                        <div class="mb-3">
-                            <label> Enter Salary</label>
-                            <input type="number" name="salary" class="form-control" value="${emp.salary}">
                         </div>
                         <button class="btn btn-primary">Update</button>
                     </form>

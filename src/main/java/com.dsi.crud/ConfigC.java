@@ -1,6 +1,8 @@
 package com.dsi.crud;
 
 import com.dsi.dao.EmpDaoImp;
+import com.dsi.dao.EmployeeDesignationDao;
+import com.dsi.dao.EmployeeDesignationDaoImp;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
@@ -13,5 +15,9 @@ public class ConfigC {
     {
         EmpDaoImp imp = new EmpDaoImp();
         return imp;
+    }
+    @Bean
+    public EmployeeDesignationDaoImp EmpDesImp(){
+        return new EmployeeDesignationDaoImp();
     }
 }
