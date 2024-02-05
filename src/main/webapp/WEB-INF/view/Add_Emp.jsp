@@ -28,7 +28,7 @@
                     <a class="nav-link active" aria-current="page" href="home">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="Add_Emp">Add Employee</a>
+                    <a class="nav-link" href="add_Emp">Add Employee</a>
                 </li>
             </ul>
         </div>
@@ -46,12 +46,12 @@
                     </c:if>
                 </div>
                <div class="card-body">
-                   <form action="registerEmployee" method="post" >
+                   <form action="registerEmployee" method="post">
                         <div class="mb-3">
                            <label> Choose Department</label>
-                            <select name="desi" class="form-control" >
+                            <select name="d_Id" class="form-control" >
                                 <c:forEach items="${desiDetails}" var="details">
-                                    <option value="${details.designationName}">${details.designationName}</option>
+                                    <option value="${details.d_Id}"> ${details.designationName}</option>
                                 </c:forEach>
                             </select>
                        </div>

@@ -10,13 +10,13 @@ import org.springframework.stereotype.Controller;
 @Controller
 @ComponentScan({"com.dsi.crud"})
 public class ConfigC {
-    @Bean(initMethod = "init")
+    @Bean
     public EmpDaoImp EmpBean()
     {
         EmpDaoImp imp = new EmpDaoImp();
         return imp;
     }
-    @Bean(initMethod = "init")
+    @Bean
     public EmployeeDesignationDaoImp EmpDesImp(){
         return new EmployeeDesignationDaoImp();
     }

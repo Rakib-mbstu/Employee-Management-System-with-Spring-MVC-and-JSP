@@ -24,10 +24,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="home">Home</a>
+                    <a class="nav-link active" aria-current="page" href="home">Edit Employee</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="Add_Emp">Add Employee</a>
+                    <a class="nav-link" href="add_Emp">Add Employee</a>
                 </li>
             </ul>
         </div>
@@ -54,7 +54,6 @@
                                  <th scope="col">Mail</th>
                                  <th scope="col">Designation</th>
                                  <th scope="col">Salary</th>
-                                 <th scope="col">Department</th>
                              </tr>
                              </thead>
                              <tbody>
@@ -64,9 +63,8 @@
                                  <td>${emp.fullName}</td>
                                  <td>${emp.address}</td>
                                  <td>${emp.mail}</td>
-                                 <td>${emp.designation}</td>
-                                 <td>${emp.salary}</td>
-                                 <td>${emp.department}</td>
+                                 <td>${emp.designationDetails.designationName}</td>
+                                 <td>${emp.designationDetails.salary}</td>
                                  <td>
                                      <a href="Edit_Emp/${emp.id}" class="btn btn-sm btn-primary">Edit</a>
                                      <a href="deleteEmployee/${emp.id}" class="btn btn-sm btn-danger">Delete</a>

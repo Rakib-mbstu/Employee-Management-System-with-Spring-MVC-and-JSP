@@ -10,7 +10,8 @@ public class EmployeeDetails {
     private String fullName;
     private String address;
     private String mail;
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name = "Designation_fk", referencedColumnName = "d_Id")
     private DesignationDetails designationDetails;
 
     public int getId() {
@@ -55,13 +56,12 @@ public class EmployeeDetails {
         this.designationDetails = designationDetails;
     }
 
-    @Override
-    public String toString() {
-        return "EmployeeDetails{" +
-                designationDetails.getDesignationName()+
-                ", fullName='" + fullName + '\'' +
-                ", address='" + address + '\'' +
-                ", mail='" + mail + '\''  +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "EmployeeDetails{" + designationDetails.getDesignationName()+
+//                ", fullName='" + fullName + '\'' +
+//                ", address='" + address + '\'' +
+//                ", mail='" + mail + '\''  +
+//                '}';
+//    }
 }
