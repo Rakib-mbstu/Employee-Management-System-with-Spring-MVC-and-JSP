@@ -30,22 +30,24 @@ public class EmployeeDesignationDaoImp implements EmployeeDesignationDao{
     public DesignationDetails getDesignationById(int id) {
         EntityManager  entityManager = factory.createEntityManager();
         entityManager.getTransaction().begin();
-        return entityManager.find(DesignationDetails.class,id);
+        DesignationDetails details = entityManager.find(DesignationDetails.class,id);
+        return details;
     }
 
     @Override
     public void editDesignation(DesignationDetails designationDetails) {
-        EntityManager  entityManager = factory.createEntityManager();
+        System.out.println(designationDetails.getD_Id());
+        EntityManager entityManager = factory.createEntityManager();
         entityManager.getTransaction().begin();
         entityManager.merge(designationDetails);
         entityManager.getTransaction().commit();
     }
 
     @Override
-    public void deleteDesignation(String designationName) {
+    public void deleteDesignation(int id) {
         EntityManager  entityManager = factory.createEntityManager();
         entityManager.getTransaction().begin();
-        entityManager.remove(entityManager.find(DesignationDetails.class,designationName));
+        entityManager.remove(entityManager.find(DesignationDetails.class,id));
         entityManager.getTransaction().commit();
     }
 }

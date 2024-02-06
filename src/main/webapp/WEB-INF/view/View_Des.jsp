@@ -47,46 +47,42 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card">
-                 <div class="card-header text-center ">
-                     <h4> All Employee Details </h4>
-                     <c:if test="${not empty msg}">
-                         <h5 class="text-success">${msg}</h5>
-                         <c:remove var="msg"/>
-                     </c:if>
-                 </div >
-                     <div class="card-body">
-                         <table class="table">
-                             <thead>
-                             <tr>
-                                 <th scope="col">Id</th>
-                                 <th scope="col">Full Name</th>
-                                 <th scope="col">Address</th>
-                                 <th scope="col">Mail</th>
-                                 <th scope="col">Designation</th>
-                                 <th scope="col">Salary</th>
-                             </tr>
-                             </thead>
-                             <tbody>
-                             <c:forEach items="${detailsList}" var="emp">
-                             <tr>
-                                 <th scope="row">${emp.id}</th>
-                                 <td>${emp.fullName}</td>
-                                 <td>${emp.address}</td>
-                                 <td>${emp.mail}</td>
-                                 <td>${emp.designationDetails.designationName}</td>
-                                 <td>${emp.designationDetails.salary}</td>
-                                 <td>
-                                     <a href="Edit_Emp/${emp.id}" class="btn btn-sm btn-primary">Edit</a>
-                                     <a href="deleteEmployee/${emp.id}" class="btn btn-sm btn-danger">Delete</a>
-                                 </td>
-                             </tr>
-                             </c:forEach>
-                             </tbody>
-                         </table>
-                     </div>
-                 </div>
+                <div class="card-header text-center ">
+                    <h4> All Designation Details </h4>
+                    <c:if test="${not empty msg}">
+                        <h5 class="text-success">${msg}</h5>
+                        <c:remove var="msg"/>
+                    </c:if>
+                </div >
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Designation Name</th>
+                            <th scope="col">Salary</th>
+                            <th scope="col">Details</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach items="${details}" var="emp">
+                            <tr>
+                                <th scope="row">${emp.d_Id}</th>
+                                <td>${emp.designationName}</td>
+                                <td>${emp.salary}</td>
+                                <td>${emp.details}</td>
+                                <td>
+                                    <a href="Edit_des/${emp.d_Id}" class="btn btn-sm btn-primary">Edit</a>
+                                    <a href="deleteDes/${emp.d_Id}" class="btn btn-sm btn-danger">Delete</a>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
+</div>
 </body>
 </html>

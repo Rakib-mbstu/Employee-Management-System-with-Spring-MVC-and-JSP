@@ -9,5 +9,5 @@ public interface EmployeeDesignationDao {
     public List<DesignationDetails> getAllDetails();
     public DesignationDetails getDesignationById(int id);
     public void editDesignation(DesignationDetails designationDetails);
-    public void deleteDesignation(String designationName);
+    public void deleteDesignation(int id);
 }
