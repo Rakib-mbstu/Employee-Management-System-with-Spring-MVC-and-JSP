@@ -56,6 +56,13 @@ public class ControllerApp {
         model.addAttribute("designationLists",list);
         return "/WEB-INF/view/Edit_Emp.jsp";
     }
+    @RequestMapping("/Edit_des/{id}")
+    public String edit_des(@PathVariable("id") int id,Model model)
+    {
+        DesignationDetails details = designationDao.getDesignationById(id);
+        model.addAttribute("details",details);
+        return "/WEB-INF/view/Edit_des.jsp";
+    }
 
     @RequestMapping(value = "/updateEmp", method = RequestMethod.POST)
     public String updateEmp(@RequestParam("d_Id") int id,@ModelAttribute EmployeeDetails employeeDetails, HttpSession session) {
@@ -63,6 +70,13 @@ public class ControllerApp {
         empDao.update(employeeDetails);
         session.setAttribute("msg", "Success");
         return "redirect:/home";
+    }
+    @RequestMapping(value = "/updateDes",method = RequestMethod.POST)
+    public String updateDes(@ModelAttribute DesignationDetails details,HttpSession session)
+    {
+        session.setAttribute("msg","Updated");
+        designationDao.editDesignation(details);
+        return "redirect:/view_des";
     }
 
     @RequestMapping(value = "/registerEmployee", method = RequestMethod.POST)
@@ -79,6 +93,33 @@ public class ControllerApp {
         empDao.delete(id);
         session.setAttribute("msg", "deleted");
         return "redirect:/home";
+    }
+    @RequestMapping("deleteDes/{id}")
+    public String deleteDes(@PathVariable("id") int id,HttpSession session)
+    {
+        designationDao.deleteDesignation(id);
+        session.setAttribute("msg","deleted");
+        return "redirect:/view_des";
+    }
+    @RequestMapping(value = "registerDesignation",method = RequestMethod.POST)
+    public String saveDesignation(@ModelAttribute DesignationDetails designationDetails,HttpSession session)
+    {
+        designationDao.save(designationDetails);
+        session.setAttribute("msg","Designation Registration Completed");
+        return "redirect:/view_des";
+    }
+    @RequestMapping("add_des")
+    public String addDesignation()
+    {
+
+        return "/WEB-INF/view/Add_Des.jsp";
+    }
+    @RequestMapping("view_des")
+    public String viewDesignation(Model model)
+    {
+        List<DesignationDetails> list = designationDao.getAllDetails();
+        model.addAttribute("details",list);
+        return "/WEB-INF/view/View_Des.jsp";
     }
 
 }
