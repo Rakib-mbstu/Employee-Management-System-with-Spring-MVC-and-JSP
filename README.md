@@ -13,7 +13,6 @@ This project is an Employee Management System built using Spring MVC and JSP. It
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
-- [Acknowledgments](#acknowledgments)
 
 ## Introduction
 
@@ -47,7 +46,7 @@ Follow these instructions to set up the project on your local machine.
 1. Clone the repository:
 
     ```bash
-    git clone [https://github.com/Rakib-mbstu/Employee-Management-System-with-Spring-MVC-and-JSP](https://github.com/Rakib-mbstu/Employee-Management-System-with-Spring-MVC-and-JSP.git)
+    git clone https://github.com/Rakib-mbstu/Employee-Management-System-with-Spring-MVC-and-JSP.git
     cd Employee-Management-System-with-Spring-MVC-and-JSP
     ```
 
@@ -74,9 +73,4 @@ Contributions are welcome! Please follow the [contributing guidelines](CONTRIBUT
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-
-## Acknowledgments
-
-- Special thanks to [EntityFactoryManager](https://examplelinktoentityfactorymanager.com) for providing efficient data management.
-- Other acknowledgments, credits, or resources can be mentioned here.
 
