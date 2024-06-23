@@ -5,7 +5,6 @@ import com.dsi.dao.EmployeeDesignationDaoImp;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
-//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
 
 @Controller
 @ComponentScan({"com.dsi.controller"})//pointing towards the path of controller
