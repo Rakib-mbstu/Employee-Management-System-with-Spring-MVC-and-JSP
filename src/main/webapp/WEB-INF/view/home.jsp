@@ -24,20 +24,20 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="home">Edit Employee</a>
+                    <a class="nav-link" aria-current="page" href="home">Show Employee</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="add_Emp">Add Employee</a>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="add_des">Add Designation</a>
+                    <a class="nav-link active" href="add_Emp">Add Employee</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="view_des">View all Designation</a>
+                    <a class="nav-link active" href="add_des">Add Designation</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" href="view_des">View all Designation</a>
                 </li>
             </ul>
         </div>

@@ -17,22 +17,22 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
-        <a class="navbar-brand" href="front_view">Emp Management System</a>
+        <a class="navbar-brand" href="front_view">EMS</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="home">Edit Employee</a>
+                    <a class="nav-link active" aria-current="page" href="home">Show Employee</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="add_Emp">Add Employee</a>
+                    <a class="nav-link active" aria-current="page"  href="add_Emp">Add Employee</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="add_des">Add Designation</a>
+                    <a class="nav-link active" href="add_des">Add Designation</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav">
@@ -62,6 +62,7 @@
                             <th scope="col">Designation Name</th>
                             <th scope="col">Salary</th>
                             <th scope="col">Details</th>
+                            <th scope="col">Action</th>
                         </tr>
                         </thead>
                         <tbody>

@@ -38,7 +38,7 @@
             </ul>
             <ul class="nav navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="view_des">View all Designation</a>
+                    <a class="nav-link active" href="view_des">View all Designation</a>
                 </li>
             </ul>
         </div>

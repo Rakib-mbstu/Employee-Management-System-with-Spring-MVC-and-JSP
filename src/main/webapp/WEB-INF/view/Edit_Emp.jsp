@@ -39,7 +39,7 @@
         <div class="col-md-6 offset-md-3">
             <div class="card">
                 <div class="card-header text-center">
-                    <h3> Edit Employee details</h3>
+                    <h3> Show Employee details</h3>
                     <c:if test="${not empty msg}">
                         <h5>${msg}</h5>
                         <c:remove var="msg"/>
